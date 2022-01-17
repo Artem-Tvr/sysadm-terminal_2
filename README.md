@@ -67,6 +67,7 @@ flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov 
 Если вы хотите, чтобы оболочка была включена computertwo, используйте вместо этого это, что вызовет выделение TTY во время удаленного выполнения:
 
 ssh -t user@computerone.com 'ssh otheruser@computertwo.com'
+
 13.
 Делал по этой схеме:
 
