@@ -1,9 +1,10 @@
 # Домашнее задание к занятию "3.2. Работа в терминале, лекция 2"
 
-cd
+1. cd
 
 Это команда оболочки (sh/bash/...) для смены директории, а не отдельная программа или системный вызов. Она выполняется внутри сессии терминала. Если использовать внешний вызов, то она будет менять директорию среди своего окружения и не будет менять каталог в текущей оболочке.
 
+2.
 ```
 | grep -c
 ```
@@ -14,6 +15,9 @@ cd
 ![3.jpg](./assets/3.jpg)
 
 ![4.jpg](./assets/4.jpg)
+
+
+5.
 
 ```
 cat < input-file > output-file
@@ -55,7 +59,7 @@ root@vagrant:~# grep sse /proc/cpuinfo
 flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt xsave rdrand hypervisor lahf_lm abm invpcid_single pti fsgsbase invpcid
 flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt xsave rdrand hypervisor lahf_lm abm invpcid_single pti fsgsbase invpcid
 ```
-
+12.
 По умолчанию, когда вы запускаете команду на удаленном компьютере с помощью ssh, для удаленного сеанса не выделяется TTY . Это позволяет вам передавать двоичные данные и т. д. без необходимости иметь дело с причудами TTY. Это среда, предназначенная для команды, выполняемой на computerone.
 
 Однако, когда вы запускаете ssh без удаленной команды, он выделяет TTY, потому что вы, вероятно, будете запускать сеанс оболочки. Это ожидается ssh otheruser@computertwo.com командой, но из-за предыдущего объяснения для этой команды нет TTY.
@@ -63,7 +67,7 @@ flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov 
 Если вы хотите, чтобы оболочка была включена computertwo, используйте вместо этого это, что вызовет выделение TTY во время удаленного выполнения:
 
 ssh -t user@computerone.com 'ssh otheruser@computertwo.com'
-
+13.
 Делал по этой схеме:
 
 * Запустите длительный процесс, например `top`
@@ -77,5 +81,5 @@ ssh -t user@computerone.com 'ssh otheruser@computertwo.com'
 * Подключиться к фоновому процессу: `reptyr 4711`
 * Отключите мультиплексор терминала (например, CTRL-A D) и закройте ssh.
 * Переподключите ssh, подключитесь к своему мультиплексору (например `tmux attach`, ).
-
+14.
 tee читает из input и пишет в output и в файл. Работает потому что команда запущена от sudo.
